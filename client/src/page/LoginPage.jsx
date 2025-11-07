@@ -15,7 +15,7 @@ import { z } from "zod";
 import { motion } from "framer-motion";
 import CodeBackground from "../components/CodeBackground.jsx";
 import { useAuthStore } from "../store/useAuthStore.js";
-import AlGoHolLogo from "../assets/Logo.png";
+import AlGoHolLogo from"../assets/Logo.png";
 
 const loginSchema = z.object({
   email: z.string().email("Enter a valid email"),
