@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useProblemStore } from "../store/useProblemStore.js";
-import ProblemTable from "../components/ProblemTable.jsx";
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
   const { getAllProblems, problems, isProblemsLoading } = useProblemStore();
@@ -180,16 +180,81 @@ const HomePage = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            className="text-center"
           >
-            <ProblemTable problems={problems} />
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="relative inline-block"
+            >
+              {/* Glow background */}
+              <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-primary/60 via-primary/50 to-primary/40 opacity-60 blur-xl transition-opacity duration-300 group-hover:opacity-80"></span>
+
+              <Link
+                to="/problems"
+                className="relative inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground rounded-xl font-semibold text-lg shadow-md hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02] active:scale-[0.97]"
+              >
+                <motion.div
+                  whileHover={{ rotate: 20 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <Hash className="size-5" />
+                </motion.div>
+                <span>Browse All Problems</span>
+
+                {/* Animated glow pulse */}
+                <motion.span
+                  className="absolute -right-2 -top-2 w-3 h-3 bg-primary-foreground/90 rounded-full"
+                  animate={{ opacity: [1, 0.2, 1], scale: [1, 1.3, 1] }}
+                  transition={{ repeat: Infinity, duration: 1.5 }}
+                />
+              </Link>
+            </motion.div>
+
+            {/* Subtext with animated sparkle */}
+            <motion.p
+              className="mt-4 text-muted-foreground text-sm flex items-center justify-center gap-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+            >
+              <Flame className="size-4 text-orange-500 animate-pulse" />
+              Explore new challenges every week — your next badge awaits!
+            </motion.p>
           </motion.div>
         ) : (
-          <div className="text-center py-12 text-muted-foreground">
-            <p>No problems available yet.</p>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="text-center py-16 text-muted-foreground"
+          >
+            <div className="text-5xl mb-4 animate-bounce">🧩</div>
+            <p className="text-lg font-medium">No problems available yet.</p>
             <p className="mt-2 text-sm">
-              Stay tuned — new challenges coming soon!
+              Stay tuned — new challenges are on the way!
             </p>
-          </div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="mt-6"
+            >
+              <Link
+                to="/"
+                className="text-primary hover:underline inline-flex items-center gap-1 text-sm font-medium"
+              >
+                <span>Go back home</span>
+                <motion.span
+                  animate={{ x: [0, 4, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.2 }}
+                >
+                  →
+                </motion.span>
+              </Link>
+            </motion.div>
+          </motion.div>
         )}
       </div>
     </div>

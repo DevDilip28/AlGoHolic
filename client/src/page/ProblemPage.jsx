@@ -244,30 +244,37 @@ const ProblemPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-base-300 to-base-200 max-w-7xl w-full mx-auto">
-      <nav className="navbar bg-base-100 shadow-lg px-4">
-        <div className="flex-1 flex items-start gap-2">
-          <Link to="/" className="flex items-center gap-2 text-primary mt-2">
+      <nav className="navbar bg-base-100 shadow-lg px-4 py-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:gap-3 w-full sm:w-auto">
+          <Link
+            to="/"
+            className="flex items-center gap-2 text-primary mb-2 sm:mb-0"
+          >
             <Home className="w-6 h-6" />
             <ChevronRight className="w-4 h-4" />
           </Link>
-          <div>
-            <h1 className="text-xl font-bold">{problem.title}</h1>
-            <div className="flex flex-wrap items-center gap-2 text-sm text-base-content/70 mt-2">
+
+          <div className="flex-1 min-w-0">
+            <h1 className="text-lg sm:text-xl font-bold truncate">
+              {problem.title}
+            </h1>
+
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs sm:text-sm text-base-content/70 mt-1 sm:mt-2">
               <span className="flex items-center gap-1">
                 <Clock className="w-4 h-4" />
                 Updated{" "}
                 {new Date(problem.createdAt).toLocaleDateString("en-US", {
                   year: "numeric",
-                  month: "long",
+                  month: "short",
                   day: "numeric",
                 })}
               </span>
-              <span>•</span>
+              <span className="hidden sm:inline">•</span>
               <span className="flex items-center gap-1">
                 <Users className="w-4 h-4" />
                 {submissionCount} Submissions
               </span>
-              <span>•</span>
+              <span className="hidden sm:inline">•</span>
               <span className="flex items-center gap-1">
                 <ThumbsUp className="w-4 h-4" />
                 95% Success Rate
@@ -275,7 +282,8 @@ const ProblemPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex-none flex items-center gap-4">
+
+        <div className="flex items-center flex-wrap justify-start sm:justify-end gap-2 w-full sm:w-auto">
           <button
             className={`btn btn-ghost btn-circle ${
               isBookmarked ? "text-primary" : ""
@@ -285,11 +293,13 @@ const ProblemPage = () => {
           >
             <Bookmark className="w-5 h-5" />
           </button>
+
           <button className="btn btn-ghost btn-circle" aria-label="Share">
             <Share2 className="w-5 h-5" />
           </button>
+
           <select
-            className="select select-bordered select-primary w-40"
+            className="select select-bordered select-primary w-full sm:w-40"
             value={selectedLanguage}
             onChange={handleLanguageChange}
           >
