@@ -58,20 +58,13 @@ export const login = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   const user = await db.user.findUnique({
-    where: {
-      email,
-    },
+    where: { email },
   });
 
-  if (!user) {
-    throw new ApiError(404, "User not found");
-  }
+  if (!user) throw new ApiError(404, "User not found");
 
   const isMatch = await bcrypt.compare(password, user.password);
-
-  if (!isMatch) {
-    throw new ApiError(401, "Invalid credentials");
-  }
+  if (!isMatch) throw new ApiError(401, "Invalid credentials");
 
   const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
     expiresIn: "7d",
@@ -79,9 +72,9 @@ export const login = asyncHandler(async (req, res) => {
 
   res.cookie("jwt", token, {
     httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV !== "development",
-    maxAge: 1000 * 60 * 60 * 24 * 7,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+    maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
   });
 
   const userData = {
@@ -89,13 +82,14 @@ export const login = asyncHandler(async (req, res) => {
     name: user.name,
     email: user.email,
     role: user.role,
-    token: token,
+    token,
   };
 
   return res
     .status(200)
     .json(new ApiResponse(200, userData, "Logged in successfully"));
 });
+
 
 export const logout = asyncHandler(async (req, res) => {
   res.clearCookie("jwt", {
