@@ -6,7 +6,7 @@ import { Eye, EyeOff, Loader2, Lock, Mail, User, Sparkles } from "lucide-react";
 import { z } from "zod";
 import { motion } from "framer-motion";
 import { useAuthStore } from "../store/useAuthStore.js";
-import AlGoHolLogo from "../assets/logo.png";
+import AlGoHolLogo from "../assets/Logo.png";
 import CodeBackground from "../components/CodeBackground.jsx";
 
 const SignUpSchema = z.object({
