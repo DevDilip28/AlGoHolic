@@ -75,7 +75,7 @@ This project is deployed live at **[https://algoholic.site](https://algoholic.si
 * JWT + HttpOnly cookies
 * Zod for validation
 
-### **DevOps / Deployment:**
+### **Deployment:**
 
 * Frontend → Vercel
 * Backend → Render
