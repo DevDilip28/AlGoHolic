@@ -120,6 +120,3 @@ backend/
  ├── docker
  ├── package.json
 ```
-
----
-
