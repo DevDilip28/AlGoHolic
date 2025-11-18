@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/DevDilip28/AlGoHolic/main/AlgoHolic%20img.png" alt="AlgoHol!c Banner" />
+</p>
+
 # 🚀 AlgoHol!c — DSA Practice Platform
 
 AlgoHol!c is a fully production-ready **Data Structures & Algorithms Practice Platform** engineered to help users master DSA through curated problems, streak tracking, achievements, custom playlists, and an interactive multi-language code editor.
