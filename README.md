@@ -10,7 +10,7 @@ AlgoHol!c is a fully production-ready **Data Structures & Algorithms Practice Pl
 ## ⭐ Features
 
 ### 🧩 Curated Problem Library
-- 300+ structured DSA problems across **Arrays, Strings, DP, Trees, Graphs, Recursion, Backtracking**, and more.
+- structured DSA problems across **Arrays, Strings, DP, Trees, Graphs, Recursion, Backtracking**, and more.
 - Difficulty levels: **Easy, Medium, Hard**
 - Advanced search, tagging, and filtering system.
 
@@ -78,36 +78,5 @@ AlgoHol!c is a fully production-ready **Data Structures & Algorithms Practice Pl
 - Database → **Neon PostgreSQL**
 
 ---
-
-## 📁 Project Structure
-
-algoholic/
-├── client/
-│ ├── public/
-│ ├── src/
-│ │ ├── assets/
-│ │ ├── components/
-│ │ ├── layout/
-│ │ ├── lib/
-│ │ ├── pages/
-│ │ ├── store/
-│ │ ├── App.jsx
-│ │ ├── main.jsx
-│ │ ├── index.css
-│ └── vite.config.js
-│
-└── server/
-├── prisma/
-├── src/
-│ ├── controllers/
-│ ├── generated/
-│ ├── libs/
-│ ├── middleware/
-│ ├── routes/
-│ ├── utils/
-│ └── index.js
-├── .env
-├── docker/
-├── package.json
 
 ---
