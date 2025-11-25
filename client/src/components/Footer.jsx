@@ -24,7 +24,7 @@ const Footer = () => {
 
           <div className="order-3 flex items-center gap-5 text-gray-400">
             <a
-              href="https://github.com/"
+              href="https://github.com/DevDilip28"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -33,7 +33,7 @@ const Footer = () => {
               <Github className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com/"
+              href="http://www.linkedin.com/in/dilipasdeo"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -42,7 +42,7 @@ const Footer = () => {
               <Linkedin className="w-5 h-5" />
             </a>
             <a
-              href="mailto:dilip@example.com"
+              href="mailto:dilipasdeo4@example.com"
               aria-label="Email"
               className="hover:text-indigo-400 transition-colors duration-200"
             >
